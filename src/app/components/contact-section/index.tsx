@@ -121,16 +121,16 @@ export const ContactSection = () => {
                 Location
               </h3>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2!2d-81.3789!3d28.4985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDI5JzU0LjYiTiA4McKwMjInNDQuMCJX!5e0!3m2!1sen!2sus!4v1700000000000"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2!2d-81.4009!3d28.5565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e77b5e5b4e5c3d%3A0x0!2s1428+W+Anderson+St%2C+Orlando%2C+FL+32805!5e0!3m2!1sen!2sus!4v1700000000000"
                 className="h-[200px] w-full border border-white/10"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
               <p className="text-center text-white/60 font-light text-sm mt-4">
-                4822 South Orange Ave, Unit 6
+                1428 W Anderson St
                 <br />
-                Orlando, FL 32806
+                Orlando, FL 32805
               </p>
             </div>
 

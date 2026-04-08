@@ -47,9 +47,9 @@ export const FooterSection = () => {
                 (407) 257-3659
               </li>
               <li className="text-white/60">
-                4822 South Orange Ave, Unit 6
+                1428 W Anderson St
                 <br />
-                Orlando, FL 32806
+                Orlando, FL 32805
               </li>
             </ul>
           </div>
