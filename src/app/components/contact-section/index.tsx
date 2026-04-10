@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { contactSchema } from "@/types/contact";
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useForm as useFormspreeForm } from "@formspree/react";
 
-const CONTACT_FORM_ID = "YOUR_FORMSPREE_ID";
+const CONTACT_SUBMIT_URL = "https://formspree.io/f/mpqovajl";
 const SUBSCRIPTION_FORM_ID = "YOUR_FORMSPREE_ID";
 
 export const ContactSection = () => {
@@ -15,31 +15,38 @@ export const ContactSection = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
   });
 
-  const [contactFormState, contactSubmit] = useFormspreeForm(CONTACT_FORM_ID);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
   const [subscriptionFormState, subscriptionSubmit] =
     useFormspreeForm(SUBSCRIPTION_FORM_ID);
 
-  useEffect(() => {
-    if (contactFormState.succeeded) {
-      alert("Thank you! Your message has been sent successfully.");
-      reset();
+  async function onContactSubmit(data: z.infer<typeof contactSchema>) {
+    setSubmitError("");
+    setIsSubmitting(true);
+    try {
+      const res = await fetch(CONTACT_SUBMIT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("Submission failed");
       // @ts-ignore
       if (typeof gtag_report_conversion === "function") gtag_report_conversion();
-      window.location.reload();
+      const params = new URLSearchParams();
+      Object.entries(data).forEach(([k, v]) => {
+        if (v !== undefined && v !== "") params.set(k, String(v));
+      });
+      window.location.href = `/contact/thank-you?${params.toString()}`;
+    } catch {
+      setSubmitError("Something went wrong. Please try again.");
+      setIsSubmitting(false);
     }
-  }, [contactFormState.succeeded, reset]);
-
-  useEffect(() => {
-    if (subscriptionFormState.succeeded) {
-      alert("Thank you for subscribing!");
-      window.location.reload();
-    }
-  }, [subscriptionFormState.succeeded]);
+  }
 
   return (
     <div id="contact" className="w-full layoutPadding py-10">
@@ -57,7 +64,7 @@ export const ContactSection = () => {
         <div className="flex flex-col md:flex-row gap-8 justify-between w-full tracking-wide">
           <form
             name="contact"
-            onSubmit={contactSubmit}
+            onSubmit={handleSubmit(onContactSubmit)}
             className="flex flex-col gap-y-3 w-full md:max-w-[420px] bg-zinc-950 border border-white/10 p-8"
           >
             <h3 className="text-lg font-medium tracking-wider uppercase mb-2">
@@ -106,12 +113,15 @@ export const ContactSection = () => {
                 className="w-full p-2.5 px-3 bg-white/5 border border-white/10 text-white placeholder:text-white/20 text-sm focus:outline-none focus:border-white/30 transition-colors resize-none"
               ></textarea>
             </div>
+            {submitError && (
+              <p className="text-[11px] text-red-400">{submitError}</p>
+            )}
             <button
               type="submit"
-              disabled={contactFormState.submitting}
+              disabled={isSubmitting}
               className="bg-white text-black w-full mt-3 py-3 text-sm tracking-[0.2em] uppercase font-medium hover:bg-white/90 transition-colors disabled:opacity-50"
             >
-              {contactFormState.submitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
 

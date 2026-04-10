@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "INDVL Auto",
     images: [
       {
-        url: "/img/site-logo.png",
+        url: "/img/logo.png",
         width: 800,
         height: 800,
         alt: "INDVL Auto Logo",

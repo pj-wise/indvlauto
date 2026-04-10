@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const FooterSection = () => {
   return (
@@ -6,9 +7,7 @@ export const FooterSection = () => {
       <div className="max-w-screen-format mx-auto">
         <div className="flex gap-8 justify-between flex-wrap pb-12">
           <div className="max-md:min-w-[250px]">
-            <h4 className="text-xl font-bold tracking-[0.2em] uppercase">
-              INDVL
-            </h4>
+            <Image src="/img/logo.png" alt="INDVL Auto" width={100} height={0} style={{ width: 100, height: 'auto' }} />
             <p className="pt-4 max-w-[280px] text-white/40 font-light text-sm leading-relaxed">
               Individuality drives design. A luxury automotive restyling studio
               in Orlando, FL.

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { HamburgerMenu, MenuBody } from "../hamburger-menu";
 import { useEffect, useState } from "react";
 import {
@@ -29,8 +30,8 @@ export const Navbar = () => {
     <>
       <nav className="hidden z-[100] lg:flex justify-between items-center bg-background/80 backdrop-blur-md left-0 right-0 absolute py-5 layoutPadding border-b border-white/5">
         <div className="w-full max-w-screen-format lg:flex justify-between items-center">
-          <Link href="/" className="font-bold text-2xl tracking-[0.3em] uppercase">
-            INDVL
+          <Link href="/" className="flex items-center">
+            <Image src="/img/logo.png" alt="INDVL Auto" width={100} height={0} style={{ width: 100, height: 'auto' }} priority />
           </Link>
 
           <div className="flex justify-evenly gap-8 transition-colors items-center">
@@ -93,6 +94,9 @@ export const Navbar = () => {
             <Link href="/#gallery" className={linkClassName}>
               Gallery
             </Link>
+            <Link href="/drop-off" className={linkClassName}>
+              Drop Off / Pick Up
+            </Link>
             <Link href="/#contact" className={linkClassName}>
               Contact
             </Link>
@@ -108,8 +112,8 @@ export const Navbar = () => {
       </nav>
 
       <nav className="flex z-[999] lg:hidden justify-between items-center bg-background/80 backdrop-blur-md left-0 right-0 absolute py-6 layoutPadding border-b border-white/5">
-        <Link href="/" className="font-bold text-2xl tracking-[0.3em] uppercase">
-          INDVL
+        <Link href="/" className="flex items-center">
+          <Image src="/img/logo.png" alt="INDVL Auto" width={100} height={0} style={{ width: 100, height: 'auto' }} priority />
         </Link>
         <div className="flex items-center gap-3">
           <Link href="/#contact">

@@ -96,6 +96,13 @@ export const MenuBody = (props: {
           Gallery
         </Link>
         <Link
+          href="/drop-off"
+          className={cn(linkClassName)}
+          onClick={() => setShowMenu(false)}
+        >
+          Drop Off / Pick Up
+        </Link>
+        <Link
           href="/#contact"
           className={cn(linkClassName)}
           onClick={() => setShowMenu(false)}
