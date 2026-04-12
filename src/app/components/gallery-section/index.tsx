@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export type CategoryType =
@@ -20,15 +21,32 @@ export const GallerySection = () => {
   };
 
   const gallery = [
+    { imgSrc: "/work/image0.jpeg", category: CATEGORIES.wraps },
+    { imgSrc: "/work/image1.jpeg", category: CATEGORIES.wraps },
     { imgSrc: "/work/image3.jpeg", category: CATEGORIES.wraps },
-    { imgSrc: "/work/image11.jpeg", category: CATEGORIES.wraps },
+    { imgSrc: "/work/image4.jpeg", category: CATEGORIES.ppf },
     { imgSrc: "/work/image5.jpeg", category: CATEGORIES.ppf },
+    { imgSrc: "/work/image7.jpeg", category: CATEGORIES.ceramicCoating },
     { imgSrc: "/work/image9.jpeg", category: CATEGORIES.ppf },
+    { imgSrc: "/work/image10.jpeg", category: CATEGORIES.windowTint },
+    { imgSrc: "/work/image11.jpeg", category: CATEGORIES.wraps },
+    { imgSrc: "/work/image12.jpeg", category: CATEGORIES.ceramicCoating },
+    { imgSrc: "/work/image13.jpeg", category: CATEGORIES.wraps },
+    { imgSrc: "/work/image14.jpeg", category: CATEGORIES.ppf },
+    { imgSrc: "/work/image15.jpeg", category: CATEGORIES.windowTint },
     { imgSrc: "/work/image16.jpeg", category: CATEGORIES.ceramicCoating },
+    { imgSrc: "/work/image17.jpeg", category: CATEGORIES.wraps },
+    { imgSrc: "/work/image18.jpeg", category: CATEGORIES.windowTint },
+    { imgSrc: "/work/image19.jpeg", category: CATEGORIES.ppf },
+    { imgSrc: "/work/image20.jpeg", category: CATEGORIES.ceramicCoating },
+    { imgSrc: "/work/image21.jpeg", category: CATEGORIES.wraps },
     { imgSrc: "/work/image22.jpeg", category: CATEGORIES.ceramicCoating },
     { imgSrc: "/work/image23.jpeg", category: CATEGORIES.wraps },
-    { imgSrc: "/work/image18.jpeg", category: CATEGORIES.windowTint },
-    { imgSrc: "/work/image13.jpeg", category: CATEGORIES.wraps },
+    { imgSrc: "/work/IMG_0140.jpeg", category: CATEGORIES.wraps },
+    { imgSrc: "/work/IMG_0156.jpeg", category: CATEGORIES.ppf },
+    { imgSrc: "/work/IMG_0345.jpeg", category: CATEGORIES.ceramicCoating },
+    { imgSrc: "/work/IMG_0368.jpeg", category: CATEGORIES.windowTint },
+    { imgSrc: "/work/IMG_0589.jpeg", category: CATEGORIES.wraps },
   ];
 
   const [filteredGallery, setFilteredGallery] = useState([...gallery]);
@@ -85,6 +103,18 @@ export const GallerySection = () => {
             <GalleryItem key={`galleryItem-${index}`} imgSrc={imgSrc} />
           ))}
         </div>
+
+        <p className="text-white/60 text-sm sm:text-base font-light mt-10 tracking-wide">
+          See more of our work on{" "}
+          <Link
+            href="https://instagram.com/indvl.auto"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white underline underline-offset-4 hover:text-white/70 transition-colors"
+          >
+            @indvl.auto
+          </Link>
+        </p>
       </div>
     </div>
   );
