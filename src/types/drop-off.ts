@@ -18,18 +18,20 @@ export const dropOffSchema = z.object({
   services: z.string().min(1, "Services being performed is required"),
   previousWork: z.string().min(1, "Previous work disclosure is required"),
   signature: z.string().min(1, "Signature is required"),
-  policyAgreement: z.literal(true, {
-    errorMap: () => ({ message: "You must agree to the policies" }),
-  }),
+  policyAgreement: z
+    .boolean()
+    .refine((val) => val === true, {
+      message: "You must agree to the policies",
+    }),
 });
 
 export const pickUpSchema = z.object({
   signature: z.string().min(1, "Signature is required"),
-  vehicleAcceptance: z.literal(true, {
-    errorMap: () => ({
+  vehicleAcceptance: z
+    .boolean()
+    .refine((val) => val === true, {
       message: "You must confirm vehicle acceptance",
     }),
-  }),
   notes: z.string().optional(),
 });
 
