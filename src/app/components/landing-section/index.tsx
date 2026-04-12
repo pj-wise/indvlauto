@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 export const LandingSection = () => {
@@ -43,7 +44,14 @@ export const LandingSection = () => {
           whileInView="show"
           viewport={{ once: false }}
         >
-          INDVL
+          <Image
+            src="/img/logo.png"
+            alt="INDVL Auto Logo"
+            width={800}
+            height={800}
+            priority
+            className="w-48 sm:w-72 lg:w-96 h-auto mx-auto"
+          />
         </motion.h1>
 
         <motion.div

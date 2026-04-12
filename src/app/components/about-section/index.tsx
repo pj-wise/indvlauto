@@ -25,14 +25,22 @@ export default function AboutSection() {
             </h2>
             <div className="w-12 h-[1px] bg-white/30 mt-6 mb-8" />
             <p className="text-white/60 text-base sm:text-lg leading-relaxed font-light">
-              From our Orlando studio, we redefine auto restyling, paint
-              protection, and custom finishes. At INDVL, individuality drives
-              design — with precision, passion, and an unrivaled eye for detail,
-              we transform every ride into a truly one-of-one experience.
+              At INDVL, individuality drives design. Stepping into a new era of
+              automotive luxury where craftsmanship meets innovation, and every
+              detail is tailored to perfection. From our Orlando studio, we
+              redefine auto restyling, paint protection, and custom finishes with
+              an unwavering commitment to excellence.
             </p>
             <p className="text-white/60 text-base sm:text-lg leading-relaxed font-light mt-4">
               Using only the finest professional films and coatings, we deliver
-              results that don&apos;t just look good — but protect.{" "}
+              results that don&apos;t just look good... but protects. With
+              precision and passion an unrivaled eye for detail, INDVL transforms
+              every ride into a truly one-of-one experience.
+            </p>
+            <p className="text-white/60 text-base sm:text-lg leading-relaxed font-light mt-4">
+              But we&apos;re more than automotive. We produce our own film and
+              extend our vision into lifestyle with a signature line of INDVL
+              merch, so you can carry the culture wherever you go.{" "}
               <Link
                 href="#contact"
                 className="text-white underline underline-offset-4 hover:text-white/70 transition-colors"
